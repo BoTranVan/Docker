@@ -1,0 +1,22 @@
+version: "3"
+
+services:
+    grafana:
+        image: grafana/grafana:latest
+        depends_on:
+            - influxdb
+        ports:
+            - 3000:3000
+        restart: on-failure
+    influxdb:
+        image: influxdb:latest
+        ports:
+            - 8083:8083
+            - 8086:8086
+        restart: on-failure
+        environment:
+            INFLUXDB_DB: senlin_monitors
+            INFLUXDB_ADMIN_USER: root
+            INFLUXDB_ADMIN_PASSWORD: tranbo9x
+            INFLUXDB_USER: senlin
+            INFLUXDB_USER_PASSWORD: Welcome123

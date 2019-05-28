@@ -1,0 +1,15 @@
+version: "3"
+
+services:
+    rabbitmq:
+        image: rabbitmq
+        ports:
+            - 5672:5672
+            - 15672:15672
+        restart: on-failure
+        environment:
+            RABBITMQ_DEFAULT_USER: celery
+            RABBITMQ_DEFAULT_PASS: Welcome123
+            RABBITMQ_DEFAULT_VHOST: senlin_monitors
+            
+            
